@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparador de Precios</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <img class="bairescompare_icon" src="/images/bairescompare_icon.png" alt="BairesComare_icon">
-        <input type="text" id="search-input" placeholder="Buscar producto...">
+        <img class="bairescompare_icon" src="bairescompare_icon.png" alt="BairesComare_icon"><br>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Buscar producto...">
+          </button>
+      </div>
         <button class="button-62" role="button" onclick="searchProduct()">Buscar</button>
+        <hr class="dashed">
         <div id="loading-spinner" class="spinner" style="display: none;"></div>
         <ul id="product-list"></ul>
     </div>
@@ -42,6 +46,6 @@
       </footer>
       <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="/scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>

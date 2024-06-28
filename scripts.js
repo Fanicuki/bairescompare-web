@@ -11,7 +11,6 @@ async function searchProduct() {
     productList.innerHTML = '';
 
     if (!query) {
-        // Mostrar la ventana emergente
         modal.style.display = 'flex';
         return;
     }
@@ -34,13 +33,27 @@ async function searchProduct() {
 
         products.forEach(product => {
             const li = document.createElement('li');
-            li.textContent = `${product.name} - $${product.price.toFixed(2)} - ${product.store}`;
+            const a = document.createElement('a');
+            a.href = product.url;  
+            a.target = '_blank'; 
+            
+            const formattedName = product.name.replace(/\b\w/g, char => char.toUpperCase());
+
+            const img = document.createElement('img');
+            img.src = product.image;
+            img.alt = formattedName;
+            img.style.width = '150px';
+            img.style.height = '150px';
+            a.textContent = `${formattedName} - $${product.price.toFixed(2)} - ${product.store}`;
+            
+            li.appendChild(img);
+            li.appendChild(document.createTextNode(' '));
+            li.appendChild(a);
             productList.appendChild(li);
         });
     } catch (error) {
         console.error('Error:', error);
     } finally {
-        // Ocultar la rueda de carga
         spinner.style.display = 'none';
     }
 }

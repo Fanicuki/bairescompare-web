@@ -17,11 +17,13 @@ def scrape_carrefour_product_info(query):
             soup = BeautifulSoup(result.text, 'html.parser')
             name_tag = soup.find('span', class_='vtex-store-components-3-x-productBrand vtex-store-components-3-x-productBrand--quickview')
             price_tag = soup.find('span', class_='valtech-carrefourar-product-price-0-x-currencyContainer')
-            if name_tag and price_tag:
+            image_tag = soup.find('img', class_='vtex-store-components-3-x-productImageTag vtex-store-components-3-x-productImageTag--product-view-images-selector vtex-store-components-3-x-productImageTag--main vtex-store-components-3-x-productImageTag--product-view-images-selector--main')
+            if name_tag and price_tag and image_tag:
                 name = name_tag.get_text(strip=True).lower()
                 price = price_tag.get_text(strip=True).replace('$', '').replace(',', '.')
+                image_url = image_tag['src']
                 if query in name:
-                    products.append({"name": name, "price": float(price), "store": "Carrefour"})
+                    products.append({"name": name, "price": float(price), "store": "Carrefour", "url": url, "image": image_url})
         except Exception as e:
             print(f"Error scraping Carrefour URL {url}: {e}")
     return products
@@ -44,11 +46,13 @@ def scrape_dia_product_info(query):
             soup = BeautifulSoup(result.text, 'html.parser')
             name_tag = soup.find('span', class_='vtex-store-components-3-x-productBrand vtex-store-components-3-x-productBrand--productNamePdp')
             price_tag = soup.find('span', class_='vtex-product-price-1-x-sellingPriceValue')
-            if name_tag and price_tag:
+            image_tag = soup.find('img', class_='vtex-store-components-3-x-productImageTag vtex-store-components-3-x-productImageTag--main')
+            if name_tag and price_tag and image_tag:
                 name = name_tag.get_text(strip=True).lower()
                 price = price_tag.get_text(strip=True).replace('$', '').replace(',', '.')
+                image_url = image_tag['src']
                 if query in name:
-                    products.append({"name": name, "price": float(price), "store": "Día"})
+                    products.append({"name": name, "price": float(price), "store": "Día", "url": url, "image": image_url})
         except Exception as e:
             print(f"Error scraping Día URL {url}: {e}")
     return products
