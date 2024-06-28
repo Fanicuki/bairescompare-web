@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Precios</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <img class="bairescompare_icon" src="/images/bairescompare_icon.png" alt="BairesComare_icon">
+        <input type="text" id="search-input" placeholder="Buscar producto...">
+        <button class="button-62" role="button" onclick="searchProduct()">Buscar</button>
+        <div id="loading-spinner" class="spinner" style="display: none;"></div>
+        <ul id="product-list"></ul>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Por favor, ingresa el nombre de un producto.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <ul class="social-icon">
+          <li class="social-icon__item"><a class="social-icon__link" href="https://wa.me/+541170252595">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://crmtec1vl.blogspot.com/">
+              <ion-icon name="school"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/patowica/">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="https://www.carrefour.com.ar/almacen">Carrefour</a></li>
+          <li class="menu__item"><a class="menu__link" href="https://diaonline.supermercadosdia.com.ar/almacen">Día</a></li>
+        </ul>
+        <p>&copy;2024 BairesCompare | Todos los derechos reservados</p>
+      </footer>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="/scripts.js"></script>
+</body>
+</html>
