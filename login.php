@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($id, $nombre, $apellido, $contraseña_encriptada);
         $stmt->fetch();
         if (password_verify($contraseña, $contraseña_encriptada)) {
-            header("Location: index.html");
+            header("Location: http://127.0.0.1:5000/");
         } else {
             echo "Usuario o contraseña incorrectos.";
         }

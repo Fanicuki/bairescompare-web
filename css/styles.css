@@ -6,8 +6,64 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    padding-top: 60px;
     background-color: #334756;
     font-family: "Roboto", sans-serif;
+}
+.navbar {
+  width: 100%;
+  background-color: #334756;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 7px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.navbar a {
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.person_icon {
+  color: white;
+  font-size: 1.5rem;
+}
+.profile-icon {
+  position: relative;
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.profile-icon:hover .dropdown-content {
+  display: block;
 }
 
 .container {
@@ -63,7 +119,7 @@ li {
     font-size: 25px;
 }
 #product-list a {
-  display: inline-block;
+  display:flex;
   vertical-align: top;
   text-decoration: none;
   color: white;
@@ -224,4 +280,69 @@ li {
 
 .button-62:not([disabled]):hover {
   box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 25px auto;
+        padding: 20px;
+    }
+
+    #search-input {
+        width: calc(100% - 20px);
+        font-size: 16px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .profile-icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .bairescompare_icon {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #product-list a {
+        font-size: 24px;
+    }
+
+    li {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .profile-icon {
+        margin-right: 0;
+    }
+
+    .bairescompare_icon {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #product-list a {
+        font-size: 18px;
+    }
+
+    li {
+        font-size: 16px;
+    }
 }
