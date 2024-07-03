@@ -15,7 +15,7 @@ async function searchProduct() {
         return;
     }
 
-    // Mostrar la rueda de carga
+    // Show the loading spinner
     spinner.style.display = 'block';
 
     try {
@@ -28,8 +28,8 @@ async function searchProduct() {
 
         const products = await response.json();
         
-        // Añadir depuración aquí
-        console.log("Productos recibidos:", products);
+        // Debugging received products
+        console.log("Received products:", products);
 
         products.forEach(product => {
             const li = document.createElement('li');
