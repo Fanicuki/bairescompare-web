@@ -15,7 +15,7 @@ async function searchProduct() {
         return;
     }
 
-    // Show the loading spinner
+    // Mostrar la rueda de carga
     spinner.style.display = 'block';
 
     try {
@@ -28,27 +28,45 @@ async function searchProduct() {
 
         const products = await response.json();
         
-        // Debugging received products
-        console.log("Received products:", products);
+        // Añadir depuración aquí
+        console.log("Productos recibidos:", products);
 
         products.forEach(product => {
             const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = product.url;  
-            a.target = '_blank'; 
             
-            const formattedName = product.name.replace(/\b\w/g, char => char.toUpperCase());
-
+            // Imagen del producto
             const img = document.createElement('img');
             img.src = product.image;
-            img.alt = formattedName;
+            img.alt = product.name.replace(/\b\w/g, char => char.toUpperCase());
             img.style.width = '150px';
             img.style.height = '150px';
-            a.textContent = `${formattedName} - $${product.price.toFixed(2)} - ${product.store}`;
-            
             li.appendChild(img);
+            
+            // Espacio entre imagen del producto y el texto
             li.appendChild(document.createTextNode(' '));
+            
+            // Link al producto
+            const a = document.createElement('a');
+            a.href = product.url;
+            a.target = '_blank';
+            a.textContent = `${product.name.replace(/\b\w/g, char => char.toUpperCase())} - $${product.price.toFixed(2)} - ${product.store}`;
             li.appendChild(a);
+            
+            // Espacio entre el texto y el logo del supermercado
+            li.appendChild(document.createTextNode(' '));
+
+            // Imagen del logo del supermercado
+            const storeLogo = document.createElement('img');
+            if (product.store === 'Carrefour') {
+                storeLogo.src = 'carrefour_logo.png';
+            } else if (product.store === 'Día') {
+                storeLogo.src = 'dia_logo.png';
+            }
+            storeLogo.alt = `${product.store} Logo`;
+            storeLogo.style.width = '20%';
+            storeLogo.style.height = '20%';
+            li.appendChild(storeLogo);
+
             productList.appendChild(li);
         });
     } catch (error) {

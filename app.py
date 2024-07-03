@@ -63,7 +63,7 @@ def scrape_dia_product_info(query):
             try:
                 result = future.result()
                 soup = BeautifulSoup(result.text, 'html.parser')
-                name_tag = soup.find('span', class_='vtex-store-components-3-x-productBrand vtex-store-components-3-x-productBrand--productNamePdp ')
+                name_tag = soup.find('span', class_='vtex-store-components-3-x-productBrand vtex-store-components-3-x-productBrand--productNamePdp')
                 price_tag = soup.find('span', class_='vtex-product-price-1-x-sellingPriceValue')
                 image_tag = soup.find('img', class_='vtex-store-components-3-x-productImageTag vtex-store-components-3-x-productImageTag--main')
                 
