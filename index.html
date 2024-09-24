@@ -15,7 +15,7 @@
         <div class="search-container">
           <input type="text" id="search-input" placeholder="Buscar producto...">
         </div>
-        <button class="button-62" role="button" onclick="searchProduct()">Buscar</button>
+        <button class="button-62" role="button" onclick="searchProduct()" id="searchButton">Buscar</button>
         <hr class="dashed">
         <div id="loading-spinner" class="spinner" style="display: none;"></div>
         <ul id="product-list"></ul>
@@ -44,6 +44,17 @@
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+      function searchProduct() {
+        alert("Buscando producto...");
+      }
+    
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") { 
+          document.getElementById("searchButton").click();
+        }
+      });
+    </script>
     <script src="scripts.js"></script>
 </body>
 </html>
